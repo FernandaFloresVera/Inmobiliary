@@ -1,0 +1,16 @@
+.cards {
+    margin-top: 50px;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+    .cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+    }
+}

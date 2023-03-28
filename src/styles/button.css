@@ -1,0 +1,55 @@
+button {
+  width: 400px;
+  height: 40px;
+  border: 0;
+  border-radius: 5px;
+  background-color:black;
+  color: #f1e6e6f3;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  margin-top: 24px;
+}
+
+button:hover {
+  background-color: #CF0303;
+  box-shadow: 0 0 10px #01162450;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: #aa1520;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+}
+
+.red-button {
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 80px;
+}
+
+.white-button {
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 80px;
+}
+
+@media only screen and (max-width: 992px) {
+  button {
+    width: 300px;
+    display: block;
+  }
+}

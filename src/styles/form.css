@@ -1,0 +1,135 @@
+label {
+	cursor: pointer;
+  display: block;
+  color: rgba(255, 255, 255, 0.671);
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	margin-top: 24px;
+	margin-bottom: 10px;
+}
+
+input {
+  color: rgba(255, 255, 255, 0.671);
+  display: block;  
+  width: 400px;
+  height: 35px;
+  padding: 12px;
+  border-radius: 5px;
+  outline: none;
+  background-color: rgb(0, 0, 0);
+	border: 1Px solid rgba(255, 255, 255, 0.671);
+	box-shadow: 0px 1px 2px rgba(192, 81, 81, 0.08);
+}
+
+input:hover {
+  border: 1px solid #CF0303;
+  box-shadow: 0px 0px 20px -17px;
+  font-size: normal;
+}
+
+input:focus {
+  border: 1px solid #CF0303;
+}
+
+textarea {
+  color: rgba(255, 255, 255, 0.671);
+  width: 400px;
+  height: 100px;
+  padding: 12px;
+  border-radius: 5px;
+  outline: none;
+	background-color: black;
+	border: 1px solid rgba(255, 255, 255, 0.671);
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.08);
+	resize: none
+}
+
+textarea:hover {
+  border: 1px solid #CF0303;
+  box-shadow: 0px 0px 20px -17px;
+}
+
+textarea:focus {
+  border: 1px solid #CF0303;
+}
+
+.none {
+  display: none;
+}
+
+.label-img {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #CF0303;
+  border-radius: 5px;
+  width: 400px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen-img {
+  border-radius: 5px;
+  width: 400px;
+}
+
+.label-img:hover {
+  background-color: #CF0303;
+  box-shadow: 0 0 10px #01162450;
+  cursor: pointer;
+}
+
+.container-input {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-input .presupuesto input{
+  background-color: black;
+  width: 95%;
+}
+
+.container-input .tipo input{
+  background-color: black;
+  width: 100%;
+}
+
+.imagen-form {
+  max-width: 400px;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 992px) {
+  input {
+    max-width: 300px;
+  }
+
+  .container-input .presupuesto {
+    width: 130px;
+  }
+  
+  .container-input .tipo {
+    width: 150px;
+  }
+
+  textarea {
+    width: 300px;
+  }
+
+  .container-input {
+    width: 300px;
+  }
+
+  .label-img {
+    width: 200px;
+  }
+
+  .imagen-img {
+    width: 300px;
+  }
+
+}
