@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from '../hook/useForm';
 import { LoginPage } from './LoginPage';
 import "../styles/register.css"
+import { useWebsocket } from '../hook/useWebsocket';
 
 export const RegisterPage = () => {
 	const navigate = useNavigate();
+	const { websocket } = useWebsocket();
 
 	const { name, email, password, onInputChange, onResetForm } =
 		useForm({
@@ -17,7 +19,10 @@ export const RegisterPage = () => {
 	const onRegister = e => {
 		e.preventDefault();
 
-		navigate('/dashboard', {
+
+		websocket.emit('create_user_event', {name, email, password});
+
+		navigate('/login', {
 			replace: true,
 			state: {
 				logged: true,
@@ -58,7 +63,7 @@ export const RegisterPage = () => {
 						required
 						autoComplete='off'
 					/>
-					
+
 				</div>
 				<div className='input-group'>
 				<label htmlFor='password' required>Contraseña</label>
@@ -74,8 +79,8 @@ export const RegisterPage = () => {
 				</div>
 
 
-				<a href="/login" className='boton'>Registrate</a>
-				
+				<button type='submit' className='boton'>Registrate</button>
+
 				</div>
 			</form>
 		</div>

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import '../styles/form.css';
+import jwtDecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
-export default function Form() {
+export default function Form({websocket}) {
+  const navigate = useNavigate();
   const [datos, setDatos] = useState({
     nombre: "",
     descripcion: "",
@@ -11,11 +14,45 @@ export default function Form() {
     imagen: null,
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // Aquí puedes enviar los datos del formulario al servidor
-    alert('Se subieron los datos con exito!')
-    console.log(datos);
+
+    const formData = new FormData();
+    formData.append('file', datos.imagen)
+
+    const rawResponse = await fetch('http://54.208.161.248:3001/api/file', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const content = await rawResponse.json();
+
+    const imageURL = content.url;
+
+
+    console.log(imageURL);
+
+    const payload = {
+      name: datos.nombre,
+      description: datos.descripcion,
+      budget: datos.presupuesto,
+      type: datos.tipoObra,
+      imageURL,
+    }
+
+    websocket.emit('create_project_event', payload);
+
+    const { email } = jwtDecode(localStorage.getItem('token'));
+
+    const route = email == 'devrrior@gmail.com' ? '/cards' : '/constructora';
+
+    navigate(route, {
+      replace: true,
+      state: {
+        logged: true,
+      },
+    });
   };
 
   const handleChange = (event) => {
@@ -72,14 +109,14 @@ export default function Form() {
           />
         </div>
       </div>
-      
+
 
       <label htmlFor="imagen">Subir imagen</label>
       {
-        datos.imagen ? 
-        <img 
-          src={URL.createObjectURL(datos.imagen)} 
-          alt="imagen" 
+        datos.imagen ?
+        <img
+          src={URL.createObjectURL(datos.imagen)}
+          alt="imagen"
           className="imagen-img"
         /> :
         <>
@@ -97,7 +134,7 @@ export default function Form() {
         accept="image/*"
         onChange={handleChange}
       />
-      
+
       <Button text="Crear Convocatoria" />
     </form>
   );
