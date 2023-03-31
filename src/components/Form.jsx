@@ -21,7 +21,7 @@ export default function Form({websocket}) {
     const formData = new FormData();
     formData.append('file', datos.imagen)
 
-    const rawResponse = await fetch('http://54.208.161.248:3001/api/file', {
+    const rawResponse = await fetch('https://localhost:3001/api/file', {
       method: 'POST',
       body: formData,
     });
