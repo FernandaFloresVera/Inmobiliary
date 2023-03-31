@@ -31,8 +31,6 @@ export default function Form({websocket}) {
     const imageURL = content.url;
 
 
-    console.log(imageURL);
-
     const payload = {
       name: datos.nombre,
       description: datos.descripcion,
@@ -49,12 +47,7 @@ export default function Form({websocket}) {
 
     websocket.emit('get_project_list_event', {});
 
-    navigate(route, {
-      replace: true,
-      state: {
-        logged: true,
-      },
-    });
+    navigate(route);
   };
 
   const handleChange = (event) => {
