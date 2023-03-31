@@ -19,7 +19,7 @@ export const LoginPage = () => {
   const onLogin = async (e) => {
     e.preventDefault();
 
-    const rawResponse = await fetch('https://localhost:3001/api/auth', {
+    const rawResponse = await fetch('https://api.fer.software/api/auth', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

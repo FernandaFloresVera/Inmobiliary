@@ -21,7 +21,7 @@ export default function Form({websocket}) {
     const formData = new FormData();
     formData.append('file', datos.imagen)
 
-    const rawResponse = await fetch('https://localhost:3001/api/file', {
+    const rawResponse = await fetch('https://api.fer.software/api/file', {
       method: 'POST',
       body: formData,
     });

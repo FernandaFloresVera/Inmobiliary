@@ -2,7 +2,7 @@ import { io } from 'socket.io-client';
 import { WebsocketContext } from './websocketContext';
 import { useMemo } from 'react';
 
-const SERVER_URL = 'https://localhost:3000';
+const SERVER_URL = 'https://websocket.fer.software';
 
 export const WebsocketProvider = ({ children }) => {
 
