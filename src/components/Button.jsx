@@ -22,6 +22,7 @@ export function ButtonRed({ id }) {
     };
 
     websocket.emit('update_project_event', payload);
+    websocket.emit('get_project_list_event', {});
   };
 
   return (

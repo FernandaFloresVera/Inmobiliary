@@ -47,6 +47,8 @@ export default function Form({websocket}) {
 
     const route = email == 'devrrior@gmail.com' ? '/cards' : '/constructora';
 
+    websocket.emit('get_project_list_event', {});
+
     navigate(route, {
       replace: true,
       state: {
